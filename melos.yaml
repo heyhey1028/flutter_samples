@@ -1,0 +1,20 @@
+# Reference: https://github.com/KosukeSaigusa/flutterfire-commons/blob/main/melos.yaml
+name: flutter_samples
+
+repository: https://github.com/heyhey1028/flutter_samples
+
+packages:
+  - samples/**
+  - samples/**/example/**
+
+scripts:
+  clean:
+    run: melos exec -- "flutter clean"
+
+  pub:get:
+    run: melos exec -- "flutter pub get"
+
+  clean:pub:get:
+    run: melos exec -- "flutter clean && flutter pub get"
+
+  analyze: melos exec -- dart analyze .

@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run js_sample" ,
+        "program": "samples/js_sample/lib/main.dart",
+        "request": "launch",
+        "type": "dart",
+        "args": ["-v","--debug"]
+      }
+    ]
+  }
+  

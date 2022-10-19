@@ -1,0 +1,29 @@
+# Reference: https://github.com/invertase/melos/blob/main/.gitignore
+.DS_Store
+.atom/
+.idea/
+!.vscode/tasks.json
+
+.packages
+.pub/
+.dart_tool/
+pubspec.lock
+flutter_export_environment.sh
+
+*.iml
+
+.flutter-plugins
+.flutter-plugins-dependencies
+
+.project
+.classpath
+.settings
+.last_build_id
+
+
+# Misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+build/
