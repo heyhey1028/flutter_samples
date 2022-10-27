@@ -11,6 +11,6 @@ Pressing a Star would be a great help for my motivation, Thanks!
 参考になりましたら、スターを頂けると今後の励みになります！
 
 # Contents
-## Flutter
-1. introducing `js` package / `js`パッケージの紹介
-https://github.com/heyhey1028/flutter_samples/tree/main/samples/js_sample
+
+1. introducing `js` package / `js`パッケージの紹介：https://github.com/heyhey1028/flutter_samples/tree/main/samples/js_sample
+<img width="500" src="https://user-images.githubusercontent.com/44666053/196833918-8d00d840-b687-4d22-ae6c-6192478b0373.gif">
