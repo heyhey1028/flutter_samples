@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:master_animation/features/multiple_effect.dart';
+import 'package:master_animation/features/sequence_animation.dart';
 
 import '../features/animation_basic.dart';
 import '../main.dart';
@@ -38,8 +40,20 @@ class MainDrawer extends StatelessWidget {
             DrawerTile(
               color: Colors.indigo[100],
               icon: const Icon(Icons.notes),
-              title: 'SAMPLE',
+              title: 'BASIC',
               navigateTo: const AnimationBasic(),
+            ),
+            DrawerTile(
+              color: Colors.orange[100],
+              icon: const Icon(Icons.bubble_chart),
+              title: 'MULTIPLE EFFECT',
+              navigateTo: const MultipleEffect(),
+            ),
+            DrawerTile(
+              color: Colors.green[100],
+              icon: const Icon(Icons.cyclone),
+              title: 'SEQUENCE ANIMATION',
+              navigateTo: const SequenceAnimation(),
             ),
           ],
         ),

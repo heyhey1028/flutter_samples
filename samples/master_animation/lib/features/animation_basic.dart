@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_animation/widgets/main_drawer.dart';
 
 class AnimationBasic extends StatefulWidget {
   const AnimationBasic({super.key});
@@ -33,11 +34,18 @@ class _AnimationBasicState extends State<AnimationBasic>
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter app'),
+        title: const Text('Animation basic'),
       ),
+      drawer: const MainDrawer(),
       body: AnimatedBuilder(
         animation: animation,
         builder: (context, _) {
