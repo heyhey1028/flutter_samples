@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_animation/features/chained_animation.dart';
 import 'package:master_animation/features/multiple_effect.dart';
 import 'package:master_animation/features/sequence_animation.dart';
 
@@ -39,13 +40,13 @@ class MainDrawer extends StatelessWidget {
             ),
             DrawerTile(
               color: Colors.indigo[100],
-              icon: const Icon(Icons.notes),
+              icon: const Icon(Icons.start),
               title: 'BASIC',
               navigateTo: const AnimationBasic(),
             ),
             DrawerTile(
               color: Colors.orange[100],
-              icon: const Icon(Icons.bubble_chart),
+              icon: const Icon(Icons.multiple_stop),
               title: 'MULTIPLE EFFECT',
               navigateTo: const MultipleEffect(),
             ),
@@ -54,6 +55,12 @@ class MainDrawer extends StatelessWidget {
               icon: const Icon(Icons.cyclone),
               title: 'SEQUENCE ANIMATION',
               navigateTo: const SequenceAnimation(),
+            ),
+            DrawerTile(
+              color: Colors.red[100],
+              icon: const Icon(Icons.bubble_chart),
+              title: 'CHAINED ANIMATION',
+              navigateTo: const ChainedAnimation(),
             ),
           ],
         ),
