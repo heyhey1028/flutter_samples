@@ -66,7 +66,7 @@ class _ChainedAnimationState extends State<ChainedAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter app'),
+        title: const Text('Chained Animation'),
       ),
       drawer: const MainDrawer(),
       body: AnimatedBuilder(
