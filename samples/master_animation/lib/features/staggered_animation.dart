@@ -11,9 +11,7 @@ class StaggeredAnimation extends StatefulWidget {
 class _StaggeredAnimationState extends State<StaggeredAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
-  late Tween<Offset> offsetTween1;
-  late Tween<Offset> offsetTween2;
-  late Tween<Offset> offsetTween3;
+  late Tween<Offset> offsetTween;
   late Animation<Offset> offsetAnimation1;
   late Animation<Offset> offsetAnimation2;
   late Animation<Offset> offsetAnimation3;
@@ -24,30 +22,26 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
     controller = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
 
-    // align、rotation, opacityの３つのアニメーション効果を充てていきます
-    offsetTween1 = Tween(begin: const Offset(-1000, 0), end: Offset.zero);
-    offsetTween2 = Tween(begin: const Offset(-1000, 0), end: Offset.zero);
-    offsetTween3 = Tween(begin: const Offset(-1000, 0), end: Offset.zero);
+    // ３つのWidgetに対して同じ変化の値を付与していくのでTweenを１つ用意
+    offsetTween = Tween(begin: const Offset(-1000, 0), end: Offset.zero);
 
-    // 3. Tween.animateメソッドを使ってAnimationクラスを生成
-    offsetAnimation1 = offsetTween1.animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: const Interval(0, 0.3, curve: Curves.ease),
-      ),
-    );
-    offsetAnimation2 = offsetTween2.animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: const Interval(0.3, 0.7, curve: Curves.ease),
-      ),
-    );
-    offsetAnimation3 = offsetTween3.animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: const Interval(0.7, 1, curve: Curves.ease),
-      ),
-    );
+    offsetAnimation1 = CurvedAnimation(
+      parent: controller,
+      // 1. Intervalクラスに開始タイミング、終了タイミングを指定
+      curve: const Interval(0, 0.3, curve: Curves.ease),
+    ).drive(offsetTween);
+
+    // 2. CurvedAnimationを使って、IntervalをAnimationControllerに付与
+    offsetAnimation2 = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.3, 0.7, curve: Curves.ease),
+    ).drive(offsetTween);
+
+    // 3. AnimationController x TweenでAnimationクラスを生成
+    offsetAnimation3 = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.7, 1, curve: Curves.ease),
+    ).drive(offsetTween);
 
     super.initState();
   }
@@ -75,15 +69,16 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Transform.translate(
-                  offset: offsetAnimation1.value,
+                  offset: offsetAnimation1
+                      .value, // 4.  Intervalを付与して生成したAnimationをwidgetに紐づける
                   child: const Text('Hello world!'),
                 ),
                 Transform.translate(
-                  offset: offsetAnimation2.value,
+                  offset: offsetAnimation2.value, // 4.
                   child: const Text('My name is ...'),
                 ),
                 Transform.translate(
-                  offset: offsetAnimation3.value,
+                  offset: offsetAnimation3.value, // 4.
                   child: const Text('heyhey1028!!'),
                 ),
               ],

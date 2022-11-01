@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:master_animation/features/chained_animation.dart';
 import 'package:master_animation/features/multiple_effect.dart';
+import 'package:master_animation/features/multiple_ticker_provider.dart';
 import 'package:master_animation/features/sequence_animation.dart';
 import 'package:master_animation/features/staggered_animation.dart';
 
@@ -68,6 +69,12 @@ class MainDrawer extends StatelessWidget {
               icon: const Icon(Icons.bar_chart),
               title: 'STAGGERED ANIMATION',
               navigateTo: const StaggeredAnimation(),
+            ),
+            DrawerTile(
+              color: Colors.brown[100],
+              icon: const Icon(Icons.multiline_chart),
+              title: 'MULTIPLE TICKER PROVIDER',
+              navigateTo: const MultipleTickerProvider(),
             ),
           ],
         ),

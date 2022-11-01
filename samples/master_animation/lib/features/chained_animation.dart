@@ -31,27 +31,23 @@ class _ChainedAnimationState extends State<ChainedAnimation>
     rotateTween = Tween(begin: 0, end: pi * 8);
     opacityTween = Tween(begin: 1, end: 0);
 
-    alignAnimation = alignTween.animate(
-      CurvedAnimation(
-        parent: controller,
-        // 1. Intervalクラスに開始タイミング、終了タイミングを指定
-        curve: const Interval(0, 0.5, curve: Curves.ease),
-      ),
-    );
-    rotateAnimation = rotateTween.animate(
-      // 2. CurvedAnimationを使って、IntervalをAnimationControllerに付与
-      CurvedAnimation(
-        parent: controller,
-        curve: const Interval(0.5, 0.7, curve: Curves.ease),
-      ),
-    );
-    // 3. Tween.animateメソッドを使ってAnimationクラスを生成
-    opacityAnimation = opacityTween.animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: const Interval(0.7, 1, curve: Curves.ease),
-      ),
-    );
+    alignAnimation = CurvedAnimation(
+      parent: controller,
+      // 1. Intervalクラスに開始タイミング、終了タイミングを指定
+      curve: const Interval(0, 0.5, curve: Curves.ease),
+    ).drive(alignTween);
+
+    // 2. CurvedAnimationを使って、IntervalをAnimationControllerに付与
+    rotateAnimation = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.5, 0.7, curve: Curves.ease),
+    ).drive(rotateTween);
+
+    // 3. AnimationController x TweenでAnimationクラスを生成
+    opacityAnimation = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.7, 1, curve: Curves.ease),
+    ).drive(opacityTween);
 
     super.initState();
   }
