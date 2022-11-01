@@ -43,6 +43,7 @@ class _AnimationBasicState extends State<AnimationBasic>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo[300],
         title: const Text('Animation basic'),
       ),
       drawer: const MainDrawer(),

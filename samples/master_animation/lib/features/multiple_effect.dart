@@ -41,6 +41,7 @@ class _MultipleEffectState extends State<MultipleEffect>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange[300],
         title: const Text('Multiple Effect'),
       ),
       drawer: const MainDrawer(),

@@ -76,6 +76,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown[300],
         title: const Text('Multiple Ticker Provider'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

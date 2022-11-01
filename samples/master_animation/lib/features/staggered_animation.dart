@@ -56,6 +56,7 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[300],
         title: const Text('Staggered Animation'),
       ),
       drawer: const MainDrawer(),

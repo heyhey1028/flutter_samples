@@ -50,6 +50,7 @@ class _SequenceAnimationState extends State<SequenceAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[300],
         title: const Text('Sequence Animation'),
       ),
       drawer: const MainDrawer(),
