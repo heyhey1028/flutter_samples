@@ -10,6 +10,7 @@ class ImplitAndExplicit extends StatefulWidget {
 
 class _ImplitAndExplicitState extends State<ImplitAndExplicit>
     with SingleTickerProviderStateMixin {
+  // ExplicitAnimatedWidgetに渡すAnimationを定義
   late AnimationController explicitController;
   late Tween<double> explicitTween;
   late Animation<double> explicitAnimation;
@@ -17,6 +18,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
 
   @override
   void initState() {
+    // ExplicitAnimatedWidgetに渡すAnimationを生成
     explicitController =
         AnimationController(duration: const Duration(seconds: 1), vsync: this);
     explicitTween = Tween(begin: 1, end: 3);
@@ -43,19 +45,20 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            // ImplicitlyAnimatedWidget
             AnimatedScale(
-              scale: implicitScale,
+              scale: implicitScale, // <<< scaleの値を渡す
               duration: const Duration(seconds: 1),
               child: const Text("Hi, I'm Implicit"),
             ),
+            // ExplicitAnimatedWidget
             ScaleTransition(
-              scale: explicitAnimation,
+              scale: explicitAnimation, // <<< 生成したAnimationを渡す
               child: const Text("Hi, I'm Explicit"),
             ),
           ],
         ),
       ),
-      // 複数のAnimationControllerを別々に発火する
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
@@ -63,6 +66,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
           children: [
             FloatingActionButton(
               onPressed: () {
+                // ImplicitlyAnimatedWidgetに渡す値を変化させる
                 if (implicitScale == 1) {
                   setState(() => implicitScale = 3);
                   return;
@@ -79,6 +83,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
             const SizedBox(width: 20),
             FloatingActionButton(
               onPressed: () {
+                // ExplicitAnimatedWidgetに渡しているAnimationを操作する
                 if (!explicitController.isCompleted) {
                   explicitController.forward();
                   return;
