@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:master_animation/features/chained_animation.dart';
+import 'package:master_animation/features/implict_and_explicit.dart';
 import 'package:master_animation/features/multiple_effect.dart';
 import 'package:master_animation/features/multiple_ticker_provider.dart';
 import 'package:master_animation/features/sequence_animation.dart';
@@ -75,6 +76,12 @@ class MainDrawer extends StatelessWidget {
               icon: const Icon(Icons.multiline_chart),
               title: 'MULTIPLE TICKER PROVIDER',
               navigateTo: const MultipleTickerProvider(),
+            ),
+            DrawerTile(
+              color: Colors.cyan[100],
+              icon: const Icon(Icons.add_link),
+              title: 'IMPLICIT, EXPLICIT',
+              navigateTo: const ImplitAndExplicit(),
             ),
           ],
         ),
