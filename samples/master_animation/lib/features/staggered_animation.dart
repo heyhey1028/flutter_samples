@@ -22,22 +22,22 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
     controller = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
 
-    // ３つのWidgetに対して同じ変化の値を付与していくのでTweenを１つ用意
+    // prepare single Tween that would be applied to all of the Animations
     offsetTween = Tween(begin: const Offset(-1000, 0), end: Offset.zero);
 
     offsetAnimation1 = CurvedAnimation(
       parent: controller,
-      // 1. Intervalクラスに開始タイミング、終了タイミングを指定
+      // 1. define start and end time for each Intervals
       curve: const Interval(0, 0.3, curve: Curves.ease),
     ).drive(offsetTween);
 
-    // 2. CurvedAnimationを使って、IntervalをAnimationControllerに付与
+    // 2. bind Interval to AnimationController using CurvedAnimation
     offsetAnimation2 = CurvedAnimation(
       parent: controller,
       curve: const Interval(0.3, 0.7, curve: Curves.ease),
     ).drive(offsetTween);
 
-    // 3. AnimationController x TweenでAnimationクラスを生成
+    // 3. create Animation from AnimationController and Tween
     offsetAnimation3 = CurvedAnimation(
       parent: controller,
       curve: const Interval(0.7, 1, curve: Curves.ease),
@@ -71,7 +71,7 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
               children: [
                 Transform.translate(
                   offset: offsetAnimation1
-                      .value, // 4.  Intervalを付与して生成したAnimationをwidgetに紐づける
+                      .value, // 4.  bind Animation created with each Interval
                   child: const Text('Hello world!'),
                 ),
                 Transform.translate(

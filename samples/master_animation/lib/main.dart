@@ -47,7 +47,8 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              child: const Center(child: Text('Welcome to master_animation')),
+              child: const Center(
+                  child: Text('Welcome to master_animation_samples')),
             ),
           ),
         ],

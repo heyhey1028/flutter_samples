@@ -26,24 +26,23 @@ class _ChainedAnimationState extends State<ChainedAnimation>
     controller =
         AnimationController(duration: const Duration(seconds: 4), vsync: this);
 
-    // align、rotation, opacityの３つのアニメーション効果を充てていきます
+    // will apply align、rotation, opacity animation to single widget
     alignTween = Tween(begin: Alignment.topCenter, end: Alignment.center);
     rotateTween = Tween(begin: 0, end: pi * 8);
     opacityTween = Tween(begin: 1, end: 0);
-
     alignAnimation = CurvedAnimation(
       parent: controller,
-      // 1. Intervalクラスに開始タイミング、終了タイミングを指定
+      // 1. define start and end timing for Interval
       curve: const Interval(0, 0.5, curve: Curves.ease),
     ).drive(alignTween);
 
-    // 2. CurvedAnimationを使って、IntervalをAnimationControllerに付与
+    // 2. bind Interval to AnimationController using CurvedAnimation
     rotateAnimation = CurvedAnimation(
       parent: controller,
       curve: const Interval(0.5, 0.7, curve: Curves.ease),
     ).drive(rotateTween);
 
-    // 3. AnimationController x TweenでAnimationクラスを生成
+    // 3. create Animation by AnimationController x Tween
     opacityAnimation = CurvedAnimation(
       parent: controller,
       curve: const Interval(0.7, 1, curve: Curves.ease),
@@ -71,7 +70,7 @@ class _ChainedAnimationState extends State<ChainedAnimation>
         builder: (context, _) {
           return Opacity(
             opacity: opacityAnimation
-                .value, // <<< 4. Intervalを付与して生成したAnimationをwidgetに紐づける
+                .value, // <<< 4. bind animation created using Interval
             child: Align(
               alignment: alignAnimation.value, // <<< 4.
               child: Transform.rotate(

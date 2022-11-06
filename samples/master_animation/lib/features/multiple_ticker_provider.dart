@@ -10,10 +10,10 @@ class MultipleTickerProvider extends StatefulWidget {
   State<MultipleTickerProvider> createState() => _MultipleTickerProviderState();
 }
 
-//  複数のTickerProviderを供給出来るTickerProviderStateMixinをmixin
+//  mixin TickerProviderStateMixin that could provide multiple tickers
 class _MultipleTickerProviderState extends State<MultipleTickerProvider>
     with TickerProviderStateMixin {
-  // 別々にアニメーションさせる為、複数のAnimationControllerを用意
+  // to animate separately, prepare a multiple AnimationControllers
   late AnimationController alignController;
   late AnimationController rotateController;
   late TweenSequence<Alignment> alignTween;
@@ -25,14 +25,14 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
 
   @override
   void initState() {
-    // AnimationControllerそれぞれにdurationとvsyncを定義
+    // define duration and vsync for each AnimationController separately
     rotateController = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
 
     alignController =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
 
-    // それぞれのアニメーションのTweenを用意
+    // define Tween for each Animation
     rotateTween = Tween(begin: 0, end: 8 * pi);
     alignTween = TweenSequence<Alignment>(
       [
@@ -60,7 +60,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
       ],
     );
 
-    // それぞれ別のAnimationControllerを使ってAnimationを生成
+    // create Animation using each AnimationController
     alignmAnimation = alignController.drive(alignTween);
     rotateAnimation = rotateController.drive(rotateTween);
 
@@ -84,7 +84,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       drawer: const MainDrawer(),
       body: AnimatedBuilder(
-        // 複数のAnimationControllerを監視する為、マージしたクラスへ変換
+        // wrap Animations with Listenable.merge to listen to multiple animation
         animation: Listenable.merge([
           rotateController,
           alignController,
@@ -94,7 +94,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
             fit: StackFit.expand,
             children: [
               Align(
-                alignment: alignmAnimation.value, // アニメーションをWidgetに適用
+                alignment: alignmAnimation.value, // bind animation to widget
                 child: Transform.rotate(
                   angle: rotateAnimation.value,
                   child: const Text('Hello world!!'),
@@ -104,7 +104,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
           );
         },
       ),
-      // 複数のAnimationControllerを別々に発火する
+      // trigger multiple AnimationControllers separately
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(

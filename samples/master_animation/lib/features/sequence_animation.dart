@@ -12,7 +12,7 @@ class _SequenceAnimationState extends State<SequenceAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late TweenSequence<Alignment>
-      tweenSequence; // <<< Tweenではなく、TweenSequenceとして定義
+      tweenSequence; // <<< define as TweenSequence, not Tween
   late Animation<Alignment> animation;
 
   @override
@@ -20,10 +20,11 @@ class _SequenceAnimationState extends State<SequenceAnimation>
     controller =
         AnimationController(duration: const Duration(seconds: 4), vsync: this);
     tweenSequence = TweenSequence<Alignment>([
-      // <<< 複数のTweenSequenceItemを受け取る
+      // <<< can take in multiple TweenSequenceItem classes
       TweenSequenceItem(
           tween: Tween(begin: Alignment.topLeft, end: Alignment.topRight),
-          weight: 1 // <<< この例ではDurationが4秒なので、weight:1 = 1秒となる
+          weight:
+              1 // <<< in this example, duration is 4 seconds, so weight:1 means this Tween will be applied for 1 second
           ),
       TweenSequenceItem(
           tween: Tween(begin: Alignment.topRight, end: Alignment.bottomRight),
@@ -35,8 +36,8 @@ class _SequenceAnimationState extends State<SequenceAnimation>
           tween: Tween(begin: Alignment.bottomLeft, end: Alignment.topLeft),
           weight: 1),
     ]);
-    animation = controller.drive(
-        tweenSequence); // <<< TweenとAnimationControllerでAnimationを作るのと同じ様にしてAnimationを生成
+    animation = controller
+        .drive(tweenSequence); // <<< create Animation just like using a Tween
     super.initState();
   }
 
@@ -58,7 +59,7 @@ class _SequenceAnimationState extends State<SequenceAnimation>
         animation: controller,
         builder: (context, _) {
           return Align(
-              alignment: animation.value, // <<< animationを適用するだけ
+              alignment: animation.value, // <<< simply bind the animation
               child: const Text('Hello world!'));
         },
       ),

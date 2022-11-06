@@ -10,15 +10,15 @@ class ImplitAndExplicit extends StatefulWidget {
 
 class _ImplitAndExplicitState extends State<ImplitAndExplicit>
     with SingleTickerProviderStateMixin {
-  // ExplicitAnimatedWidgetに渡すAnimationを定義
+  // define Animation which will be binded to Transition widget
   late AnimationController explicitController;
   late Tween<double> explicitTween;
   late Animation<double> explicitAnimation;
-  double implicitScale = 1;
+  double implicitScale = 1; // <<< define variable for Implicit widget
 
   @override
   void initState() {
-    // ExplicitAnimatedWidgetに渡すAnimationを生成
+    // create Animation for Transition widget
     explicitController =
         AnimationController(duration: const Duration(seconds: 1), vsync: this);
     explicitTween = Tween(begin: 1, end: 3);
@@ -45,15 +45,15 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // ImplicitlyAnimatedWidget
+            // Implicit widget
             AnimatedScale(
-              scale: implicitScale, // <<< scaleの値を渡す
+              scale: implicitScale, // <<< passing variable
               duration: const Duration(seconds: 1),
               child: const Text("Hi, I'm Implicit"),
             ),
-            // ExplicitAnimatedWidget
+            // Transition widget
             ScaleTransition(
-              scale: explicitAnimation, // <<< 生成したAnimationを渡す
+              scale: explicitAnimation, // <<< bind Animation created
               child: const Text("Hi, I'm Explicit"),
             ),
           ],
@@ -66,7 +66,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
           children: [
             FloatingActionButton(
               onPressed: () {
-                // ImplicitlyAnimatedWidgetに渡す値を変化させる
+                // change the variable passed to Implicit widget
                 if (implicitScale == 1) {
                   setState(() => implicitScale = 3);
                   return;
@@ -83,7 +83,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
             const SizedBox(width: 20),
             FloatingActionButton(
               onPressed: () {
-                // ExplicitAnimatedWidgetに渡しているAnimationを操作する
+                // controller Animation class binded to Transition widget
                 if (!explicitController.isCompleted) {
                   explicitController.forward();
                   return;

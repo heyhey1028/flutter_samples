@@ -13,10 +13,10 @@ class MultipleEffect extends StatefulWidget {
 class _MultipleEffectState extends State<MultipleEffect>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
-  late Tween<Alignment> alignmentTween; // <<< 1つ目のアニメーションのTween
-  late Tween<double> rotateTween; // <<< 2つ目のアニメーションのTween
-  late Animation<Alignment> alignmentAnimation; // <<< １つ目のアニメーション
-  late Animation<double> rotateAnimation; // <<< ２つ目のアニメーション
+  late Tween<Alignment> alignmentTween; // <<< Tween for first animation
+  late Tween<double> rotateTween; // <<< Tween for second animation
+  late Animation<Alignment> alignmentAnimation; // <<< first animation
+  late Animation<double> rotateAnimation; // <<< second animation
 
   @override
   void initState() {
@@ -24,10 +24,15 @@ class _MultipleEffectState extends State<MultipleEffect>
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
     alignmentTween = Tween(
         begin: Alignment.topCenter,
-        end: Alignment.bottomCenter); // <<< 位置のアニメーションの始点と終点を定義
-    rotateTween = Tween(begin: 0, end: 8 * pi); // <<< 回転のアニメーションの始点と終点を定義
-    alignmentAnimation = controller.drive(alignmentTween); // <<< 位置のアニメーションを生成
-    rotateAnimation = controller.drive(rotateTween); // <<< 回転のアニメーションを生成
+        end: Alignment
+            .bottomCenter); // <<< define start and end value of alignment animation
+    rotateTween = Tween(
+        begin: 0,
+        end: 8 * pi); // <<< define start and end value of rotation animation
+    alignmentAnimation =
+        controller.drive(alignmentTween); // <<< create align animation
+    rotateAnimation =
+        controller.drive(rotateTween); // <<< create rotation animation
     super.initState();
   }
 
@@ -49,9 +54,9 @@ class _MultipleEffectState extends State<MultipleEffect>
         animation: controller,
         builder: (context, _) {
           return Align(
-            alignment: alignmentAnimation.value, // <<< 位置のアニメーション変化を適用
+            alignment: alignmentAnimation.value, // <<< bind align animation
             child: Transform.rotate(
-              angle: rotateAnimation.value, // <<< 回転のアニメーション変化を適用
+              angle: rotateAnimation.value, // <<< bind rotation animation
               child: const Text('Hello world!'),
             ),
           );
