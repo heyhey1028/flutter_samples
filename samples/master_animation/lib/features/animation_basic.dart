@@ -15,6 +15,7 @@ class _AnimationBasicState extends State<AnimationBasic>
   late Tween<Alignment> tween;
   final Curve curve = Curves.ease;
   late Animation<Alignment> animation;
+  static final _pageColor = Colors.indigo[300];
 
   @override
   void initState() {
@@ -44,7 +45,7 @@ class _AnimationBasicState extends State<AnimationBasic>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo[300],
+        backgroundColor: _pageColor,
         title: const Text('Animation basic'),
       ),
       drawer: const MainDrawer(),
@@ -62,7 +63,7 @@ class _AnimationBasicState extends State<AnimationBasic>
         onPressed: () {
           controller.forward(); // <<< 7. start animating with forward method
         },
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: _pageColor,
         child: const Icon(
           Icons.bolt,
           color: Colors.black,

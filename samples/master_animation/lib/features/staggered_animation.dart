@@ -10,6 +10,8 @@ class StaggeredAnimation extends StatefulWidget {
 
 class _StaggeredAnimationState extends State<StaggeredAnimation>
     with SingleTickerProviderStateMixin {
+  static final _pageColor = Colors.purple[300];
+
   late AnimationController controller;
   late Tween<Offset> offsetTween;
   late Animation<Offset> offsetAnimation1;
@@ -56,7 +58,7 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple[300],
+        backgroundColor: _pageColor,
         title: const Text('Staggered Animation'),
       ),
       drawer: const MainDrawer(),
@@ -101,7 +103,7 @@ class _StaggeredAnimationState extends State<StaggeredAnimation>
             },
           );
         },
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: _pageColor,
         child: const Icon(
           Icons.bolt,
           color: Colors.black,

@@ -10,6 +10,8 @@ class ImplitAndExplicit extends StatefulWidget {
 
 class _ImplitAndExplicitState extends State<ImplitAndExplicit>
     with SingleTickerProviderStateMixin {
+  static final _pageColor = Colors.cyan[300];
+
   // define Animation which will be binded to Transition widget
   late AnimationController explicitController;
   late Tween<double> explicitTween;
@@ -36,7 +38,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan[300],
+        backgroundColor: _pageColor,
         title: const Text('Implicit and Explicit'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -74,7 +76,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
                 setState(() => implicitScale = 1);
               },
               heroTag: 'implicit',
-              backgroundColor: Colors.yellow[700],
+              backgroundColor: _pageColor,
               child: const Icon(
                 Icons.arrow_upward,
                 color: Colors.black,
@@ -91,7 +93,7 @@ class _ImplitAndExplicitState extends State<ImplitAndExplicit>
                 explicitController.reverse();
               },
               heroTag: 'explicit',
-              backgroundColor: Colors.yellow[700],
+              backgroundColor: _pageColor,
               child: const Icon(
                 Icons.arrow_downward,
                 color: Colors.black,

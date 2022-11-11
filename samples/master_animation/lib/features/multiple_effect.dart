@@ -12,6 +12,8 @@ class MultipleEffect extends StatefulWidget {
 
 class _MultipleEffectState extends State<MultipleEffect>
     with SingleTickerProviderStateMixin {
+  static final _pageColor = Colors.orange[300];
+
   late AnimationController controller;
   late Tween<Alignment> alignmentTween; // <<< Tween for first animation
   late Tween<double> rotateTween; // <<< Tween for second animation
@@ -46,7 +48,7 @@ class _MultipleEffectState extends State<MultipleEffect>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange[300],
+        backgroundColor: _pageColor,
         title: const Text('Multiple Effect'),
       ),
       drawer: const MainDrawer(),
@@ -66,7 +68,7 @@ class _MultipleEffectState extends State<MultipleEffect>
         onPressed: () {
           controller.forward();
         },
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: _pageColor,
         child: const Icon(
           Icons.bolt,
           color: Colors.black,

@@ -10,6 +10,8 @@ class SequenceAnimation extends StatefulWidget {
 
 class _SequenceAnimationState extends State<SequenceAnimation>
     with SingleTickerProviderStateMixin {
+  static final _pageColor = Colors.green[300];
+
   late AnimationController controller;
   late TweenSequence<Alignment>
       tweenSequence; // <<< define as TweenSequence, not Tween
@@ -51,7 +53,7 @@ class _SequenceAnimationState extends State<SequenceAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green[300],
+        backgroundColor: _pageColor,
         title: const Text('Sequence Animation'),
       ),
       drawer: const MainDrawer(),
@@ -67,7 +69,7 @@ class _SequenceAnimationState extends State<SequenceAnimation>
         onPressed: () {
           controller.forward();
         },
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: _pageColor,
         child: const Icon(
           Icons.bolt,
           color: Colors.black,

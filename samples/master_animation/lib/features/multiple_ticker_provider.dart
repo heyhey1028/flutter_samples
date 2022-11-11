@@ -13,6 +13,8 @@ class MultipleTickerProvider extends StatefulWidget {
 //  mixin TickerProviderStateMixin that could provide multiple tickers
 class _MultipleTickerProviderState extends State<MultipleTickerProvider>
     with TickerProviderStateMixin {
+  static final _pageColor = Colors.brown[300];
+
   // to animate separately, prepare a multiple AnimationControllers
   late AnimationController alignController;
   late AnimationController rotateController;
@@ -78,7 +80,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown[300],
+        backgroundColor: _pageColor,
         title: const Text('Multiple Ticker Provider'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -121,7 +123,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
                 setState(() => animatingAlign = false);
               },
               heroTag: 'align',
-              backgroundColor: Colors.yellow[700],
+              backgroundColor: _pageColor,
               child: const Icon(
                 Icons.double_arrow,
                 color: Colors.black,
@@ -139,7 +141,7 @@ class _MultipleTickerProviderState extends State<MultipleTickerProvider>
                 setState(() => animatingRotation = false);
               },
               heroTag: 'rotate',
-              backgroundColor: Colors.yellow[700],
+              backgroundColor: _pageColor,
               child: const Icon(
                 Icons.cyclone,
                 color: Colors.black,

@@ -12,6 +12,8 @@ class ChainedAnimation extends StatefulWidget {
 
 class _ChainedAnimationState extends State<ChainedAnimation>
     with SingleTickerProviderStateMixin {
+  static final _pageColor = Colors.red[300];
+
   late AnimationController controller;
   late Tween<Alignment> alignTween;
   late Tween<double> rotateTween;
@@ -61,7 +63,7 @@ class _ChainedAnimationState extends State<ChainedAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[300],
+        backgroundColor: _pageColor,
         title: const Text('Chained Animation'),
       ),
       drawer: const MainDrawer(),
@@ -95,7 +97,7 @@ class _ChainedAnimationState extends State<ChainedAnimation>
             },
           );
         },
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: _pageColor,
         child: const Icon(
           Icons.bolt,
           color: Colors.black,
