@@ -3,6 +3,10 @@
 This is a sample project introducing flutter animations explained in the articles below.
 
 Article in English:
+- https://dev.to/heyhey1028/flutter-mastering-animation-1-basic-30i9
+- https://dev.to/heyhey1028/flutter-mastering-animation-2-multiple-effects-and-tweensequence-3okn
+- https://dev.to/heyhey1028/flutter-mastering-animation-3-interval-and-multiple-tickerproviders-1okf
+- https://dev.to/heyhey1028/flutter-mastering-animation-4-the-confusing-parts-of-animations-3cp3
 
 Sample contains an introduction on 
 - Animation basics
@@ -17,6 +21,10 @@ Sample contains an introduction on
 このプロジェクトは以下の記事内で紹介したアニメーションのサンプルプロジェクトになります。
 
 日本語記事：
+- https://zenn.dev/heyhey1028/articles/a9ee3695cfcf63
+- https://zenn.dev/heyhey1028/articles/8752d61f522f50
+- https://zenn.dev/heyhey1028/articles/222e2851e9d97f
+- https://zenn.dev/heyhey1028/articles/10492c3884a45a
 
 サンプル内では以下のアニメーションサンプルを紹介しています
 - アニメーションの基本
