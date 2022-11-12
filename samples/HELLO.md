@@ -1,1 +1,0 @@
-Hello master_animation!

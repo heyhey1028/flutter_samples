@@ -1,16 +1,29 @@
-# master_animation
+# About
 
-A new Flutter project.
+This is a sample project introducing flutter animations explained in the articles below.
 
-## Getting Started
+Article in English:
 
-This project is a starting point for a Flutter application.
+Sample contains an introduction on 
+- Animation basics
+- Applying multiple animation effects
+- Applying sequenced animation with `TweenSequence`
+- Applying staggered animation with `Interval`
+- Applying animation separately with multiple `TickerProvider`
+- the complex part of animations
 
-A few resources to get you started if this is your first Flutter project:
+-----------
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+このプロジェクトは以下の記事内で紹介したアニメーションのサンプルプロジェクトになります。
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+日本語記事：
+
+サンプル内では以下のアニメーションサンプルを紹介しています
+- アニメーションの基本
+- 複数のアニメーション効果の適用
+- `TweenSequenc`を使ったアニメーション
+- `Intarval`を使った連鎖的なアニメーション
+- 複数の`TickerProvider`を使って別のタイミングでアニメーションを適用させる
+- アニメーションの分かりにくい点の解説
+
+<gif>
