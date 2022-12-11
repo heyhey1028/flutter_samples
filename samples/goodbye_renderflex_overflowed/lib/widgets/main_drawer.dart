@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:goodbye_renderflex_overflowed/features/listview_unbounded.dart';
+import 'package:goodbye_renderflex_overflowed/features/overflowed_image.dart';
+import 'package:goodbye_renderflex_overflowed/features/overflowed_listview.dart';
+import 'package:goodbye_renderflex_overflowed/features/overflowed_text_screen.dart';
+import 'package:goodbye_renderflex_overflowed/features/overflowed_textformfield_screen.dart';
 
-import '../features/sample/sample_screen.dart';
+import '../features/overflowed_size_screen.dart';
 import '../main.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -17,7 +22,7 @@ class MainDrawer extends StatelessWidget {
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundColor: Colors.grey[100]!,
+                    backgroundColor: Colors.grey[100],
                     foregroundImage:
                         const AssetImage('assets/images/flutter_logo.png'),
                     radius: 50,
@@ -30,16 +35,40 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             DrawerTile(
-              color: Colors.lightBlue[100]!,
+              color: Colors.lightBlue[100],
               icon: const Icon(Icons.home),
               title: 'HOME',
               navigateTo: const MyHomePage(),
             ),
             DrawerTile(
-              color: Colors.indigo[100]!,
+              color: Colors.indigo[100],
               icon: const Icon(Icons.notes),
-              title: 'SAMPLE',
-              navigateTo: const SampleScreen(),
+              title: 'Size overflowed',
+              navigateTo: const OverflowedSizeScreen(),
+            ),
+            DrawerTile(
+              color: Colors.purple[100],
+              icon: const Icon(Icons.notes),
+              title: 'TextFormField overflowed',
+              navigateTo: OverflowedTextformfieldScreen(),
+            ),
+            DrawerTile(
+              color: Colors.green[100],
+              icon: const Icon(Icons.notes),
+              title: 'Text overflowed',
+              navigateTo: const OverflowedTextScreen(),
+            ),
+            DrawerTile(
+              color: Colors.orange[100],
+              icon: const Icon(Icons.notes),
+              title: 'Image overflowed',
+              navigateTo: const OverflowedImageScreen(),
+            ),
+            DrawerTile(
+              color: Colors.red[100],
+              icon: const Icon(Icons.notes),
+              title: 'Listview overflowed',
+              navigateTo: const OverflowedListviewScreen(),
             ),
           ],
         ),
