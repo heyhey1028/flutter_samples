@@ -1,7 +1,8 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goodbye_renderflex_overflowed/widgets/app_scaffold.dart';
-import 'package:goodbye_renderflex_overflowed/widgets/main_drawer.dart';
+
+import '../widgets/main_drawer.dart';
 
 class OverflowedTextformfieldScreen extends StatelessWidget {
   OverflowedTextformfieldScreen({super.key});
@@ -43,16 +44,19 @@ class OverflowedTextformfieldScreen extends StatelessWidget {
             ),
           ),
           child: Center(
+            /// Fix option 1: wrap `Column` with `SingleChildScrollView` if you want it to scroll
             child: Column(
               children: <Widget>[
+                /// Fix option 2: wrap children with `Expanded` or `Flexible` to resize to fit viewport
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(32),
                   child: TextFormField(
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                 ),
                 SizedBox(
