@@ -1,16 +1,8 @@
-# goodbye_renderflex_overflowed
+# About
 
-A new Flutter project.
+This is a sample project introducint various patterns of UI errors explained in the article below.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+---- 
+このプロジェクトは下記記事にて解説する様々なUIエラーのサンプルを紹介しています
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
