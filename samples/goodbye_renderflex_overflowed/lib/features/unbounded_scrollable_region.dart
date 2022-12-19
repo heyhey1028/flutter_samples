@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:goodbye_renderflex_overflowed/widgets/app_scaffold.dart';
 
-class ScrollableRegionOverflowScreen extends ConsumerWidget {
-  const ScrollableRegionOverflowScreen({super.key});
+class UnboundedScrollableRegionScreen extends ConsumerWidget {
+  const UnboundedScrollableRegionScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppScaffold(
-      title: const Text('Scrollable region overflowed'),
+      title: const Text('Unbounded scrollable region'),
       color: Colors.teal,
       body: Center(
         child: ListView(

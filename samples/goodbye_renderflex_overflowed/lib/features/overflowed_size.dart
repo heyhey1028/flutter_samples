@@ -19,11 +19,13 @@ class OverflowedSizeScreen extends ConsumerWidget {
             for (int i = 1; i < 10; i++)
 
               /// Fix option 2: wrap children with `Expanded` or `Flexible` to resize to fit viewport
-              Container(
-                margin: const EdgeInsets.all(5),
-                width: 100,
-                height: 100,
-                color: Colors.yellow,
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.all(5),
+                  width: 100,
+                  height: 100,
+                  color: Colors.yellow,
+                ),
               ),
           ],
         ),

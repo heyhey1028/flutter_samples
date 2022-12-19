@@ -14,14 +14,13 @@ class UnboundedExpandedScreen extends ConsumerWidget {
       color: Colors.indigo,
       body: SingleChildScrollView(
         child: Column(
-          /// Fix: add `mainAxisSize: MainAxisSize.min`
+          mainAxisSize: MainAxisSize.min,
           children: [
-            /// Fix: wrap children with `Flexible` instead of `Expanded`
-            const Expanded(child: Placeholder()),
-            Expanded(
+            const Flexible(child: Placeholder()),
+            Flexible(
               child: Image.asset('assets/images/dash_game.jpeg'),
             ),
-            const Expanded(child: Placeholder()),
+            const Flexible(child: Placeholder()),
           ],
         ),
       ),
