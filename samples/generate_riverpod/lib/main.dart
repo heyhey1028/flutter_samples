@@ -1,23 +1,24 @@
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import './firebase_options.dart';
-import './widgets/app_scaffold.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:generate_riverpod/widgets/app_scaffold.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
-  runApp(const MyApp());
+
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+  const MyApp({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -36,7 +37,6 @@ class MyHomePage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              // height: double.infinity,
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -48,7 +48,14 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              child: const Center(child: Text('Welcome to generate_riverpod')),
+              child: const Center(
+                child: Text(
+                  'Welcome to Sample for generating Riverpods!!!\n'
+                  'This app is inteded to show dozen of trials\n'
+                  'using rivepod_generator and riverpod v2\n',
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
         ],

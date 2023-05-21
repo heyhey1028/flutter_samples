@@ -8,3 +8,6 @@ clean_sample:
 	cd ios && arch -x86_64 pod update
 	flutter clean
 	flutter pub get
+
+watch:
+	flutter pub run build_runner watch --delete-conflicting-outputs

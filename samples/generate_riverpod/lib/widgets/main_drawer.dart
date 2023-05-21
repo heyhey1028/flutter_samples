@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:generate_riverpod/screens/async_notifier_screen/async_notifier_screen.dart';
+import 'package:generate_riverpod/screens/async_value_notifier_screen/async_value_notifier_screen.dart';
+import 'package:generate_riverpod/screens/future_screen/future_screen.dart';
+import 'package:generate_riverpod/screens/notifier_screen/notifier_screen.dart';
+import 'package:generate_riverpod/screens/provider_screen/provider_screen.dart';
+import 'package:generate_riverpod/screens/stream_screen/stream_screen.dart';
 
-import '../features/sample/sample_screen.dart';
 import '../main.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -36,10 +41,40 @@ class MainDrawer extends StatelessWidget {
               navigateTo: const MyHomePage(),
             ),
             DrawerTile(
-              color: Colors.indigo[100]!,
-              icon: const Icon(Icons.notes),
-              title: 'SAMPLE',
-              navigateTo: const SampleScreen(),
+              color: Colors.green[100]!,
+              icon: const Icon(Icons.phone),
+              title: 'NOTIFIER EXAMPLE',
+              navigateTo: const NotifierScreen(),
+            ),
+            DrawerTile(
+              color: Colors.lime[100]!,
+              icon: const Icon(Icons.sync),
+              title: 'NOTIFIER with AsyncValue',
+              navigateTo: const AsyncValueNotifierScreen(),
+            ),
+            DrawerTile(
+              color: Colors.purple[100]!,
+              icon: const Icon(Icons.deck),
+              title: 'ASYNC NOTIFIER EXAMPLE',
+              navigateTo: const AsyncNotifierScreen(),
+            ),
+            DrawerTile(
+              color: Colors.blue[100]!,
+              icon: const Icon(Icons.nordic_walking),
+              title: 'PROVIDER EXAMPLE',
+              navigateTo: const ProviderScreen(),
+            ),
+            DrawerTile(
+              color: Colors.brown[100]!,
+              icon: const Icon(Icons.wallet),
+              title: 'FUTURE PROVIDER EXAMPLE',
+              navigateTo: const FutureScreen(),
+            ),
+            DrawerTile(
+              color: Colors.yellow[100]!,
+              icon: const Icon(Icons.stream),
+              title: 'STREAM PROVIDER EXAMPLE',
+              navigateTo: const StreamScreen(),
             ),
           ],
         ),
