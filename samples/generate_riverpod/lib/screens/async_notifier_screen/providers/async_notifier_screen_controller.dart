@@ -22,8 +22,8 @@ class AsyncNotifierScreenController extends _$AsyncNotifierScreenController {
     return '';
   }
 
-  void resetWord() {
-    state = const AsyncValue.loading();
+  void delete() {
+    state = const AsyncValue.data('');
   }
 
   Future<void> setNewWord() async {

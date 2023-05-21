@@ -11,39 +11,52 @@ class AsyncNotifierScreen extends ConsumerWidget {
     final state = ref.watch(asyncNotifierScreenControllerProvider);
 
     return AppScaffold(
+      title: const Text('AsyncNotifierProvider Sample'),
       color: Colors.purple,
       body: Center(
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('AsyncNotifierProvider screen'),
           state.when(
-            data: (data) => Text(data),
+            data: (data) => Text(
+              data,
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
             loading: () => const CircularProgressIndicator(),
-            error: (error, stackTrace) => Text('$error'),
-          )
+            error: (error, stackTrace) => Text(
+              '$error',
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       )),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FloatingActionButton(
-            heroTag: 'reset',
+          FloatingActionButton.extended(
+            label: Text('Delete'),
+            heroTag: 'delete',
             onPressed: () {
-              ref
-                  .read(asyncNotifierScreenControllerProvider.notifier)
-                  .resetWord();
+              ref.read(asyncNotifierScreenControllerProvider.notifier).delete();
             },
-            child: const Icon(Icons.delete),
           ),
-          FloatingActionButton(
+          const SizedBox(width: 20),
+          FloatingActionButton.extended(
+            label: Text('Get'),
             heroTag: 'get',
             onPressed: () async {
               await ref
                   .read(asyncNotifierScreenControllerProvider.notifier)
                   .setNewWord();
             },
-            child: const Icon(Icons.new_releases),
           ),
         ],
       ),

@@ -11,22 +11,33 @@ class AsyncValueNotifierScreen extends ConsumerWidget {
     final state = ref.watch(asyncValueNotifierScreenControllerProvider);
 
     return AppScaffold(
+      title: const Text('AsyncValue with Notifier Sample'),
       color: Colors.lime,
       body: Center(
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('AsyncValue provider by NotifierProvider'),
           state.when(
-            data: (data) => Text('$data'),
+            data: (data) => Text('$data', style: const TextStyle(fontSize: 40)),
             loading: () => const CircularProgressIndicator(),
-            error: (error, stackTrace) => Text('$error'),
+            error: (error, stackTrace) =>
+                Text('$error', style: const TextStyle(fontSize: 40)),
           )
         ],
       )),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          FloatingActionButton.extended(
+            label: const Text('Random'),
+            heroTag: 'async',
+            onPressed: () async {
+              await ref
+                  .read(asyncValueNotifierScreenControllerProvider.notifier)
+                  .getRandomNum();
+            },
+          ),
+          const SizedBox(width: 20),
           FloatingActionButton(
             heroTag: 'increment',
             onPressed: () {
@@ -35,15 +46,6 @@ class AsyncValueNotifierScreen extends ConsumerWidget {
                   .increment();
             },
             child: const Icon(Icons.add),
-          ),
-          FloatingActionButton(
-            heroTag: 'async',
-            onPressed: () async {
-              await ref
-                  .read(asyncValueNotifierScreenControllerProvider.notifier)
-                  .incrementAsync();
-            },
-            child: const Icon(Icons.spa),
           ),
         ],
       ),

@@ -12,14 +12,28 @@ class StreamScreen extends ConsumerWidget {
 
     return AppScaffold(
       color: Colors.yellow,
+      title: const Text('Stream Provider Sample'),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('Stream Provider page'),
             state.when(
-              data: (data) => Text(data),
-              error: (error, stackTrace) => Text(error.toString()),
+              data: (data) => Text(
+                data,
+                style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              error: (error, stackTrace) => Text(
+                error.toString(),
+                style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
               loading: () => const CircularProgressIndicator(),
             ),
           ],

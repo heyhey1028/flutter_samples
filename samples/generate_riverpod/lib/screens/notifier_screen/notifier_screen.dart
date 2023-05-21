@@ -11,32 +11,38 @@ class NotifierScreen extends ConsumerWidget {
     final state = ref.watch(notifierScreenControllerProvider);
 
     return AppScaffold(
+      title: Text('Notifier Provider Sample'),
+      color: Colors.green,
       body: Center(
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('Sample page'),
-          Text('$state'),
+          Text(
+            '$state',
+            style: TextStyle(
+                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
+          )
         ],
       )),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          FloatingActionButton.extended(
+            label: const Text('Random'),
+            heroTag: 'async',
+            onPressed: () async {
+              await ref
+                  .read(notifierScreenControllerProvider.notifier)
+                  .getRandomNum();
+            },
+          ),
+          SizedBox(width: 20),
           FloatingActionButton(
             heroTag: 'increment',
             onPressed: () {
               ref.read(notifierScreenControllerProvider.notifier).increment();
             },
             child: const Icon(Icons.add),
-          ),
-          FloatingActionButton(
-            heroTag: 'async',
-            onPressed: () async {
-              await ref
-                  .read(notifierScreenControllerProvider.notifier)
-                  .incrementAsync();
-            },
-            child: const Icon(Icons.spa),
           ),
         ],
       ),

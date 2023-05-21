@@ -11,13 +11,19 @@ class ProviderScreen extends ConsumerWidget {
     final state = ref.watch(providerScreenControllerProvider);
 
     return AppScaffold(
-      color: Colors.blue,
+      title: Text('Provider Sample'),
+      color: Colors.red,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('Provider page'),
-            Text(state),
+            Text(
+              state,
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
           ],
         ),
       ),

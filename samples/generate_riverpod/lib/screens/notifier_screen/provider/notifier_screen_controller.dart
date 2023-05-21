@@ -14,13 +14,13 @@ class NotifierScreenController extends _$NotifierScreenController {
     state++;
   }
 
-  Future<void> incrementAsync() async {
-    final response = await http.get(
-        Uri.parse('https://randomnumberapi.com/api/v1.0/random?min=0&max=100'));
+  Future<void> getRandomNum() async {
+    final response = await http.get(Uri.parse(
+        'https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new'));
 
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
-      state = jsonResponse[0];
+      state = jsonResponse as int;
     }
   }
 }
