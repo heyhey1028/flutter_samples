@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_login_buttons/social_login_buttons.dart';
 
 class GoogleSignInScreen extends StatelessWidget {
   const GoogleSignInScreen({super.key});
@@ -9,7 +10,15 @@ class GoogleSignInScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Google Sign In Screen'),
       ),
-      body: const Placeholder(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: SocialLoginButton(
+            buttonType: SocialLoginButtonType.google,
+            onPressed: () {},
+          ),
+        ),
+      ),
     );
   }
 }
