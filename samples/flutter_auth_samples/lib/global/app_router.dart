@@ -11,7 +11,7 @@ final routerProvider = Provider(
   (ref) => GoRouter(
     navigatorKey: rootNavigatorKey,
     initialLocation: Routes.home,
-    routes: appRoutes,
+    routes: $appRoutes,
     // routes: appRoutes,
     errorPageBuilder: (context, state) => MaterialPage(
       key: state.pageKey,

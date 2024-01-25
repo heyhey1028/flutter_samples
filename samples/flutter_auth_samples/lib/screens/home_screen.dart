@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_samples/global/app_routes.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.go(Routes.googleSignIn);
+              const GoogleSignInRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.abc),
@@ -24,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.go(Routes.httpGooglePhoto);
+              const FunctionsGooglePhotoRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.ac_unit),
@@ -32,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.go(Routes.functionsGooglePhoto);
+              const HttpGooglePhotoRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.ac_unit),
@@ -40,7 +39,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.go(Routes.oauthGooglePhoto);
+              const OauthGooglePhotoRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.ac_unit),
@@ -48,7 +47,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.go(Routes.functionsOauthGooglePhoto);
+              const HttpOauthGooglePhotoRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.ac_unit),
@@ -56,7 +55,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.go(Routes.httpOauthGooglePhoto);
+              const FunctionsOauthGooglePhotoRouteData().go(context);
             },
             child: const GridTile(
               child: Icon(Icons.ac_unit),
