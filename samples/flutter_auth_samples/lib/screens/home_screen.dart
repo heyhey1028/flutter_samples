@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_samples/global/app_routes.dart';
+import 'package:flutter_auth_samples/widgets/navigate_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,57 +12,35 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home Screen'),
       ),
       body: GridView.count(
+        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 8),
         crossAxisCount: 3,
+        childAspectRatio: 0.9,
+        mainAxisSpacing: 8,
         children: [
-          GestureDetector(
-            onTap: () {
-              const GoogleSignInRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.abc),
-            ),
+          NavigateGrid(
+            image: ImageType.googlesignin,
+            onPressed: () => const GoogleSignInRouteData().go(context),
           ),
-          GestureDetector(
-            onTap: () {
-              const FunctionsGooglePhotoRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.ac_unit),
-            ),
+          NavigateGrid(
+            image: ImageType.functions,
+            onPressed: () => const FunctionsGooglePhotoRouteData().go(context),
           ),
-          GestureDetector(
-            onTap: () {
-              const HttpGooglePhotoRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.ac_unit),
-            ),
+          NavigateGrid(
+            image: ImageType.http,
+            onPressed: () => const HttpGooglePhotoRouteData().go(context),
           ),
-          GestureDetector(
-            onTap: () {
-              const OauthGooglePhotoRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.ac_unit),
-            ),
+          NavigateGrid(
+            image: ImageType.oauth,
+            onPressed: () => const OauthGooglePhotoRouteData().go(context),
           ),
-          GestureDetector(
-            onTap: () {
-              const HttpOauthGooglePhotoRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.ac_unit),
-            ),
+          NavigateGrid(
+            image: ImageType.httpoauth,
+            onPressed: () => const HttpOauthGooglePhotoRouteData().go(context),
           ),
-          GestureDetector(
-            onTap: () {
-              const FunctionsOauthGooglePhotoRouteData().go(context);
-            },
-            child: const GridTile(
-              child: Icon(Icons.ac_unit),
-            ),
+          NavigateGrid(
+            image: ImageType.functionsoauth,
+            onPressed: () => const FunctionsOauthGooglePhotoRouteData().go(context),
           ),
-          // Add more grid items with icons and navigation
         ],
       ),
     );
