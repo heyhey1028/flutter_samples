@@ -7,7 +7,7 @@ part 'google_auth.g.dart';
 @riverpod
 GoogleSignIn googleAuth(GoogleAuthRef ref) {
   return GoogleSignIn(
-    clientId: dotenv.env['GOOGLE_CLINET_ID'],
+    clientId: dotenv.env['GOOGLE_CLIENT_ID'],
     scopes: [
       'profile',
       'email',
