@@ -48,7 +48,7 @@ android {
         applicationId "com.example.flutter_auth_samples"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion flutter.minSdkVersion // **** [CHECK] might need to specify a minimum SDK version ****
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -69,4 +69,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // Added for Google Sign in for Release apps
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
 }
