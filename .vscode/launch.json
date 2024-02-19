@@ -21,6 +21,13 @@
         "request": "launch",
         "type": "dart",
         "args": ["-v","--debug"]
+      },
+      {
+        "name": "Run auth_sample" ,
+        "program": "samples/flutter_auth_samples/lib/main.dart",
+        "request": "launch",
+        "type": "dart",
+        "args": ["-v","--debug"]
       }
     ]
   }
